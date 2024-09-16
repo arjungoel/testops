@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  CreationTimestamp: null
+  labels:
+    app: bgd
+  name: bgd
+  namespace: bgd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bgd
+  strategy: {}
+  template:
+    metadata:
+      CreationTimestamp: null
+      labels:
+        app: bgd
+    spec:
+      containers:
+      - name: bgd
+        image: quay.io/redhatworkshops/bgd:latest
+        env:
+        - name: COLOR
+          value: "PATCH_ME"
+        resources: {}
